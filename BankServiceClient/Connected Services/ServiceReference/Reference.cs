@@ -78,17 +78,23 @@ namespace BankServiceClient.ServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IBanknotesService")]
     public interface IBanknotesService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/GetAllInfo", ReplyAction="http://tempuri.org/IBanknotesService/GetAllInfoResponse")]
-        BankServiceClient.ServiceReference.BanknoteModel[] GetAllInfo();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/GetAllBanknotes", ReplyAction="http://tempuri.org/IBanknotesService/GetAllBanknotesResponse")]
+        BankServiceClient.ServiceReference.BanknoteModel[] GetAllBanknotes();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/GetAllInfo", ReplyAction="http://tempuri.org/IBanknotesService/GetAllInfoResponse")]
-        System.Threading.Tasks.Task<BankServiceClient.ServiceReference.BanknoteModel[]> GetAllInfoAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/GetAllBanknotes", ReplyAction="http://tempuri.org/IBanknotesService/GetAllBanknotesResponse")]
+        System.Threading.Tasks.Task<BankServiceClient.ServiceReference.BanknoteModel[]> GetAllBanknotesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/AddBanknote", ReplyAction="http://tempuri.org/IBanknotesService/AddBanknoteResponse")]
         bool AddBanknote(int denomination, long quantity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/AddBanknote", ReplyAction="http://tempuri.org/IBanknotesService/AddBanknoteResponse")]
         System.Threading.Tasks.Task<bool> AddBanknoteAsync(int denomination, long quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/GetBanknote", ReplyAction="http://tempuri.org/IBanknotesService/GetBanknoteResponse")]
+        BankServiceClient.ServiceReference.BanknoteModel GetBanknote(int denomination);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/GetBanknote", ReplyAction="http://tempuri.org/IBanknotesService/GetBanknoteResponse")]
+        System.Threading.Tasks.Task<BankServiceClient.ServiceReference.BanknoteModel> GetBanknoteAsync(int denomination);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -118,12 +124,12 @@ namespace BankServiceClient.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public BankServiceClient.ServiceReference.BanknoteModel[] GetAllInfo() {
-            return base.Channel.GetAllInfo();
+        public BankServiceClient.ServiceReference.BanknoteModel[] GetAllBanknotes() {
+            return base.Channel.GetAllBanknotes();
         }
         
-        public System.Threading.Tasks.Task<BankServiceClient.ServiceReference.BanknoteModel[]> GetAllInfoAsync() {
-            return base.Channel.GetAllInfoAsync();
+        public System.Threading.Tasks.Task<BankServiceClient.ServiceReference.BanknoteModel[]> GetAllBanknotesAsync() {
+            return base.Channel.GetAllBanknotesAsync();
         }
         
         public bool AddBanknote(int denomination, long quantity) {
@@ -132,6 +138,14 @@ namespace BankServiceClient.ServiceReference {
         
         public System.Threading.Tasks.Task<bool> AddBanknoteAsync(int denomination, long quantity) {
             return base.Channel.AddBanknoteAsync(denomination, quantity);
+        }
+        
+        public BankServiceClient.ServiceReference.BanknoteModel GetBanknote(int denomination) {
+            return base.Channel.GetBanknote(denomination);
+        }
+        
+        public System.Threading.Tasks.Task<BankServiceClient.ServiceReference.BanknoteModel> GetBanknoteAsync(int denomination) {
+            return base.Channel.GetBanknoteAsync(denomination);
         }
     }
 }

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BankServiceClient.ServiceReference.BanknoteModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAllBanknotes</title>
+
+    <link href="~/Content/Styles/Styles.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="~/Content/Images/bank.png" type="image/png">
+</head>
+<body>
+    <p>
+        @*@Html.ActionLink("Create New", "Create")*@
+    </p>
+
+    <h1>Info about all banknotes</h1>
+
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Denomination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            @*<th></th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Denomination)
+                </td>
+                <td class="quantityTd">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
+            </tr>
+        }
+
+    </table>
+
+    <div>
+        <a href="/Home/Index">Home</a>
+    </div>
+
+</body>
+</html>

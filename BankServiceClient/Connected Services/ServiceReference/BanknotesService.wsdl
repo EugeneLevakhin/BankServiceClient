@@ -7,11 +7,11 @@
       <xsd:import schemaLocation="http://localhost:53386/BanknotesService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BankService.ServiceDomain" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IBanknotesService_GetAllInfo_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllInfo" />
+  <wsdl:message name="IBanknotesService_GetAllBanknotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBanknotes" />
   </wsdl:message>
-  <wsdl:message name="IBanknotesService_GetAllInfo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllInfoResponse" />
+  <wsdl:message name="IBanknotesService_GetAllBanknotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBanknotesResponse" />
   </wsdl:message>
   <wsdl:message name="IBanknotesService_AddBanknote_InputMessage">
     <wsdl:part name="parameters" element="tns:AddBanknote" />
@@ -19,20 +19,30 @@
   <wsdl:message name="IBanknotesService_AddBanknote_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddBanknoteResponse" />
   </wsdl:message>
+  <wsdl:message name="IBanknotesService_GetBanknote_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBanknote" />
+  </wsdl:message>
+  <wsdl:message name="IBanknotesService_GetBanknote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBanknoteResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBanknotesService">
-    <wsdl:operation name="GetAllInfo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBanknotesService/GetAllInfo" message="tns:IBanknotesService_GetAllInfo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBanknotesService/GetAllInfoResponse" message="tns:IBanknotesService_GetAllInfo_OutputMessage" />
+    <wsdl:operation name="GetAllBanknotes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBanknotesService/GetAllBanknotes" message="tns:IBanknotesService_GetAllBanknotes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBanknotesService/GetAllBanknotesResponse" message="tns:IBanknotesService_GetAllBanknotes_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddBanknote">
       <wsdl:input wsaw:Action="http://tempuri.org/IBanknotesService/AddBanknote" message="tns:IBanknotesService_AddBanknote_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBanknotesService/AddBanknoteResponse" message="tns:IBanknotesService_AddBanknote_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetBanknote">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBanknotesService/GetBanknote" message="tns:IBanknotesService_GetBanknote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBanknotesService/GetBanknoteResponse" message="tns:IBanknotesService_GetBanknote_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IBanknotesService" type="tns:IBanknotesService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetAllInfo">
-      <soap:operation soapAction="http://tempuri.org/IBanknotesService/GetAllInfo" style="document" />
+    <wsdl:operation name="GetAllBanknotes">
+      <soap:operation soapAction="http://tempuri.org/IBanknotesService/GetAllBanknotes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddBanknote">
       <soap:operation soapAction="http://tempuri.org/IBanknotesService/AddBanknote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBanknote">
+      <soap:operation soapAction="http://tempuri.org/IBanknotesService/GetBanknote" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

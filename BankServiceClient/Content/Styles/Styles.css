@@ -1,0 +1,22 @@
+﻿body {
+    background-color:cornsilk;
+}
+
+table {
+    border-collapse: collapse;
+    width: 40%;
+    background: aqua;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.quantityTd {
+    text-align: right;
+    padding-right: 5px;
+}
+
+td {
+    text-align: center;
+}
