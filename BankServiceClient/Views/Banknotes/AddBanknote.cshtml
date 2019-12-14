@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Add banknote";
+}
+
+<h2>Add banknote</h2>
+<hr />
+<br />
+
+@using (Html.BeginForm())
+{
+    <table style="width: 30%">
+        <tr>
+            <td>
+                <label>Denomination: </label>
+            </td>
+            <td>
+                @Html.TextBox("Denomination")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Quantity: </label>
+            </td>
+            <td>
+                @Html.TextBox("Quantity")
+            </td>
+        </tr>
+    </table>
+
+    <br />
+    <input type="submit" value="Add" />
+
+    <br />
+    <br />
+}

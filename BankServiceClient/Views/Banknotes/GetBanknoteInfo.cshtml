@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Get banknote info";
+}
+
+<h2>Get banknote info</h2>
+<hr />
+<br />
+
+@using (Html.BeginForm())
+{
+    <table style="width: 30%">
+        <tr>
+            <td>
+                <label>Denomination: </label>
+            </td>
+            <td>
+                @Html.TextBox("denomination")
+            </td>
+        </tr>
+    </table>
+
+    <br />
+    <input type="submit" value="Get banknote info" />
+
+    <br />
+    <br />
+}

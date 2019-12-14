@@ -14,3 +14,11 @@
     text-align: center;
     border: 1px solid black;
 }
+
+th {
+    background-color: grey;
+}
+
+hr {
+    border-top: 1px solid rgb(155, 206, 184);
+}

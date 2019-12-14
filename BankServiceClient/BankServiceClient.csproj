@@ -194,6 +194,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Banknotes\GetAllBanknotes.cshtml" />
     <Content Include="Views\Banknotes\GetBanknote.cshtml" />
+    <Content Include="Views\Banknotes\AddBanknote.cshtml" />
+    <Content Include="Views\Banknotes\AddBanknoteError.cshtml" />
+    <Content Include="Views\Banknotes\GetBanknoteInfo.cshtml" />
+    <Content Include="Views\Banknotes\GetBanknoteError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
