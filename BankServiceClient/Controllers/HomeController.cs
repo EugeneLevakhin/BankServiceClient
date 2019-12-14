@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace BankServiceClient.Controllers
 {
@@ -10,19 +6,12 @@ namespace BankServiceClient.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("About");
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "About page.";
 
             return View();
         }

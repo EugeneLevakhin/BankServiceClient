@@ -1,59 +1,39 @@
 ﻿@model IEnumerable<BankServiceClient.ServiceReference.BanknoteModel>
 
 @{
-    Layout = null;
+    ViewBag.Title = "Info about all banknotes";
 }
 
-<!DOCTYPE html>
+<h2>Info about all banknotes</h2>
+<hr />
+<br />
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>GetAllBanknotes</title>
+<table class="solidTable">
+    <tr>
+        <th class="solidCell">
+            @Html.DisplayNameFor(model => model.Denomination)
+        </th>
+        <th class="solidCell">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+    </tr>
 
-    <link href="~/Content/Styles/Styles.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="~/Content/Images/bank.png" type="image/png">
-</head>
-<body>
-    <p>
-        @*@Html.ActionLink("Create New", "Create")*@
-    </p>
-
-    <h1>Info about all banknotes</h1>
-
-    <table>
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Denomination)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            @*<th></th>*@
+            <td class="solidCell">
+                @Html.ActionLink(item.Denomination.ToString(), "GetBanknote", "Banknotes", new { denomination = item.Denomination }, null)
+            </td>
+            <td class="quantityCell">
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Denomination)
-                </td>
-                <td class="quantityTd">
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>*@
-            </tr>
-        }
+</table>
 
-    </table>
-
-    <div>
-        <a href="/Home/Index">Home</a>
-    </div>
-
-</body>
-</html>
+<div>
+    <br />
+    <br />
+    <a href="/Home/Index">Home</a>
+</div>

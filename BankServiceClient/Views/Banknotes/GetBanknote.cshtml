@@ -1,0 +1,52 @@
+﻿@model BankServiceClient.ServiceReference.BanknoteModel
+
+@{
+    ViewBag.Title = "Info about banknote";
+}
+
+<h2>Banknote @Model.Denomination</h2>
+<hr />
+<br />
+
+<table style="width: 20%">
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Denomination):
+        </td>
+        <td style="text-align: right">
+            @Model.Denomination
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Quantity):
+        </td>
+        <td style="text-align: right">
+            @Model.Quantity
+        </td>
+    </tr>
+</table>
+
+<br />
+
+<table style="width: 20%">
+    <tr>
+        <td>
+            Sum:
+        </td>
+        <td style="text-align: right">
+            <b> @(Model.Quantity * Model.Denomination) </b>
+        </td>
+    </tr>
+</table>
+
+<hr />
+
+<br />
+<br />
+<br />
+
+<div>
+    @Html.ActionLink("Back to List", "GetAllBanknotes")
+</div>
