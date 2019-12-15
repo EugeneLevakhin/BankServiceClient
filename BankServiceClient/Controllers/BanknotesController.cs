@@ -3,27 +3,30 @@ using System.Web.Mvc;
 
 namespace BankServiceClient.Controllers
 {
-    public class BanknotesController : Controller
+    public sealed class BanknotesController : Controller
     {
+        private readonly BanknotesServiceClient _banknotesServiceClient;
+
+        public BanknotesController()
+        {
+            _banknotesServiceClient = new BanknotesServiceClient();
+        }
+
         public ActionResult GetAllBanknotes()
         {
-            BanknotesServiceClient banknotesServiceClient = new BanknotesServiceClient();
-
-            BanknoteModel[] banknotes = banknotesServiceClient.GetAllBanknotes();
+            BanknoteModel[] banknotes = _banknotesServiceClient.GetAllBanknotes();
 
             return View(banknotes);
         }
 
-        public ActionResult GetBanknote(int denomination)
+        public ActionResult BanknoteDetail(int denomination)
         {
-            BanknotesServiceClient banknotesServiceClient = new BanknotesServiceClient();
-
-            BanknoteModel banknote = banknotesServiceClient.GetBanknote(denomination);
+            BanknoteModel banknote = _banknotesServiceClient.GetBanknote(denomination);
 
             return View(banknote);
         }
 
-        public ActionResult AddBanknote()
+        public ActionResult AddOrChangeBanknote()
         {
             BanknoteModel model = new BanknoteModel();
 
@@ -31,25 +34,24 @@ namespace BankServiceClient.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddBanknote(BanknoteModel banknote)
+        public ActionResult AddOrChangeBanknote(BanknoteModel banknote)
         {
             if (banknote.Denomination < 1 || banknote.Quantity < 0)
             {
-                return View("AddBanknoteError");
+                return View("AddOrChangeBanknoteError");
             }
 
-            BanknotesServiceClient banknotesServiceClient = new BanknotesServiceClient();
-            bool success = banknotesServiceClient.AddBanknote(banknote.Denomination, banknote.Quantity);
+            bool success = _banknotesServiceClient.AddOrChangeBanknote(banknote.Denomination, banknote.Quantity);
 
             if (!success)
             {
-                return View("AddBanknoteError");
+                return View("AddOrChangeBanknoteError");
             }
 
             return Redirect("/Banknotes/GetAllBanknotes");
         }
 
-        public ActionResult AddBanknoteError()
+        public ActionResult AddOrChangeBanknoteError()
         {
             return View();
         }
@@ -64,20 +66,18 @@ namespace BankServiceClient.Controllers
         {
             if (int.TryParse(denomination.ToString(), out int value))
             {
-                BanknotesServiceClient banknotesServiceClient = new BanknotesServiceClient();
-
-                BanknoteModel banknote = banknotesServiceClient.GetBanknote(value);
+                BanknoteModel banknote = _banknotesServiceClient.GetBanknote(value);
 
                 if (banknote != null)
                 {
-                    return RedirectToAction("GetBanknote", new { denomination = value });
+                    return RedirectToAction("BanknoteDetail", new { denomination = value });
                 }
             }
 
-            return View("GetBanknoteError");
+            return View("BanknoteDetailError");
         }
 
-        public ActionResult GetBanknoteError()
+        public ActionResult BanknoteDetailError()
         {
             return View();
         }

@@ -84,11 +84,11 @@ namespace BankServiceClient.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/GetAllBanknotes", ReplyAction="http://tempuri.org/IBanknotesService/GetAllBanknotesResponse")]
         System.Threading.Tasks.Task<BankServiceClient.ServiceReference.BanknoteModel[]> GetAllBanknotesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/AddBanknote", ReplyAction="http://tempuri.org/IBanknotesService/AddBanknoteResponse")]
-        bool AddBanknote(int denomination, long quantity);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/AddOrChangeBanknote", ReplyAction="http://tempuri.org/IBanknotesService/AddOrChangeBanknoteResponse")]
+        bool AddOrChangeBanknote(int denomination, long quantity);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/AddBanknote", ReplyAction="http://tempuri.org/IBanknotesService/AddBanknoteResponse")]
-        System.Threading.Tasks.Task<bool> AddBanknoteAsync(int denomination, long quantity);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/AddOrChangeBanknote", ReplyAction="http://tempuri.org/IBanknotesService/AddOrChangeBanknoteResponse")]
+        System.Threading.Tasks.Task<bool> AddOrChangeBanknoteAsync(int denomination, long quantity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBanknotesService/GetBanknote", ReplyAction="http://tempuri.org/IBanknotesService/GetBanknoteResponse")]
         BankServiceClient.ServiceReference.BanknoteModel GetBanknote(int denomination);
@@ -132,12 +132,12 @@ namespace BankServiceClient.ServiceReference {
             return base.Channel.GetAllBanknotesAsync();
         }
         
-        public bool AddBanknote(int denomination, long quantity) {
-            return base.Channel.AddBanknote(denomination, quantity);
+        public bool AddOrChangeBanknote(int denomination, long quantity) {
+            return base.Channel.AddOrChangeBanknote(denomination, quantity);
         }
         
-        public System.Threading.Tasks.Task<bool> AddBanknoteAsync(int denomination, long quantity) {
-            return base.Channel.AddBanknoteAsync(denomination, quantity);
+        public System.Threading.Tasks.Task<bool> AddOrChangeBanknoteAsync(int denomination, long quantity) {
+            return base.Channel.AddOrChangeBanknoteAsync(denomination, quantity);
         }
         
         public BankServiceClient.ServiceReference.BanknoteModel GetBanknote(int denomination) {

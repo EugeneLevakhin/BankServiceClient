@@ -13,11 +13,11 @@
   <wsdl:message name="IBanknotesService_GetAllBanknotes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllBanknotesResponse" />
   </wsdl:message>
-  <wsdl:message name="IBanknotesService_AddBanknote_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddBanknote" />
+  <wsdl:message name="IBanknotesService_AddOrChangeBanknote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrChangeBanknote" />
   </wsdl:message>
-  <wsdl:message name="IBanknotesService_AddBanknote_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddBanknoteResponse" />
+  <wsdl:message name="IBanknotesService_AddOrChangeBanknote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrChangeBanknoteResponse" />
   </wsdl:message>
   <wsdl:message name="IBanknotesService_GetBanknote_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBanknote" />
@@ -30,9 +30,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IBanknotesService/GetAllBanknotes" message="tns:IBanknotesService_GetAllBanknotes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBanknotesService/GetAllBanknotesResponse" message="tns:IBanknotesService_GetAllBanknotes_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddBanknote">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBanknotesService/AddBanknote" message="tns:IBanknotesService_AddBanknote_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBanknotesService/AddBanknoteResponse" message="tns:IBanknotesService_AddBanknote_OutputMessage" />
+    <wsdl:operation name="AddOrChangeBanknote">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBanknotesService/AddOrChangeBanknote" message="tns:IBanknotesService_AddOrChangeBanknote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBanknotesService/AddOrChangeBanknoteResponse" message="tns:IBanknotesService_AddOrChangeBanknote_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBanknote">
       <wsdl:input wsaw:Action="http://tempuri.org/IBanknotesService/GetBanknote" message="tns:IBanknotesService_GetBanknote_InputMessage" />
@@ -50,8 +50,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddBanknote">
-      <soap:operation soapAction="http://tempuri.org/IBanknotesService/AddBanknote" style="document" />
+    <wsdl:operation name="AddOrChangeBanknote">
+      <soap:operation soapAction="http://tempuri.org/IBanknotesService/AddOrChangeBanknote" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

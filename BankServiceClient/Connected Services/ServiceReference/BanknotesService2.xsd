@@ -13,7 +13,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddBanknote">
+  <xs:element name="AddOrChangeBanknote">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="denomination" type="xs:int" />
@@ -21,10 +21,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddBanknoteResponse">
+  <xs:element name="AddOrChangeBanknoteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddBanknoteResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddOrChangeBanknoteResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

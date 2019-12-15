@@ -4,7 +4,7 @@
     ViewBag.Title = "Info about all banknotes";
 }
 
-<h2>Info about all banknotes</h2>
+<h2>@ViewBag.Title</h2>
 <hr />
 <br />
 
@@ -22,7 +22,7 @@
     {
         <tr>
             <td class="solidCell">
-                @Html.ActionLink(item.Denomination.ToString(), "GetBanknote", "Banknotes", new { denomination = item.Denomination }, null)
+                @Html.ActionLink(item.Denomination.ToString(), "BanknoteDetail", "Banknotes", new { denomination = item.Denomination }, null)
             </td>
             <td class="quantityCell">
                 @Html.DisplayFor(modelItem => item.Quantity)
@@ -34,7 +34,7 @@
 
 <br />
 
-@Html.ActionLink("Add banknote", "AddBanknote", "Banknotes")
+@Html.ActionLink("Add or change banknote", "AddOrChangeBanknote", "Banknotes")
 
 <div>
     <br />
